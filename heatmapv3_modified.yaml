@@ -215,6 +215,16 @@ components:
           type: integer
           format: int64
           example: 6
+ x-aggregation:
+        operand: User.id
+        rules:
+          operator: 
+            type: logical / math / specific
+            name: AND , OR / MAX , MEAN , MIN / filtroPersonalizado
+          conditions:
+            temporal: 2500 (ms)
+            precision: n responses
+    
   responses:
     '201':
       description: Posted
