@@ -215,7 +215,7 @@ components:
           type: integer
           format: int64
           example: 6
- x-aggregation:
+  x-aggregation:
         operand: User.id
         rules:
           operator: 
