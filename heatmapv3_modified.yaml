@@ -88,7 +88,7 @@ paths:
         - Map
       summary: Get the locations frequency processed in the different connected devices.
       operationId: getMCHeatmaps
-      x-aggregation: testAggregationString
+      aggregation: testAggregationString
       parameters:
         - name: beginDate
           in: query
