@@ -88,6 +88,7 @@ paths:
         - Map
       summary: Get the locations frequency processed in the different connected devices.
       operationId: getMCHeatmaps
+      x-aggregation: testAggregationString
       parameters:
         - name: beginDate
           in: query
@@ -214,17 +215,7 @@ components:
         frequency:
           type: integer
           format: int64
-          example: 6
-  x-aggregation:
-        operand: User.id
-        rules:
-          operator: 
-            type: logical / math / specific
-            name: AND , OR / MAX , MEAN , MIN / filtroPersonalizado
-          conditions:
-            temporal: 2500 (ms)
-            precision: n responses
-    
+          example: 6    
   responses:
     '201':
       description: Posted
