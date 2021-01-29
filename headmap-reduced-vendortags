@@ -18,7 +18,16 @@ paths:
         - Map
       summary: Get the locations frequency processed in the aggregator
       operationId: getSCHeatmaps
-      x-agregation: testAggregation
+      x-aggregation:
+        operand: User.temperature
+        rules:
+          operator: 
+            type: logical / math / specific
+            name: AND , OR / MAX , MEAN , MIN
+          conditions:
+            temporal: 2500 (ms)
+            precision: 15
+
       x-swagger-router-controller: Device
       parameters:
         - name: beginDate
