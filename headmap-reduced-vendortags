@@ -12,6 +12,56 @@ info:
 tags:
   - name: Map
 paths:
+  /temperatureAVG:
+    get:
+      tags:
+        - Map
+      summary: Average
+      description: Obtains the average of the temperatures
+      operationId: getTemperatureAVG
+      x-aggregation:
+        operand: User.temperature
+        rules:
+          operator:
+            type: math
+            name: AVG
+          conditions:
+            precision: 15
+            temporal: 2500 (ms)
+      responses:
+        '200':
+          $ref: '#/components/responses/200'
+          
+  /temperatureCheck:
+    get:
+      tags:
+        - Status
+      summary: Temperature check
+      description: Obtains users exposed to abnormal temperatures
+      operationId: getTemperature
+      x-aggregation:
+        operand: User.temperature
+        rules:
+          operator:
+            type: custom
+            name: filterByTemperature
+          conditions:
+            precision: 15
+            temporal: 2500 (ms)
+      responses:
+        '200':
+          $ref: '#/components/responses/200'
+
+  /temperature:
+    get:
+      tags:
+        - Status
+      summary: Gets the environment temperature
+      description: Obtains current environment temperature
+      operationId: getEnvTemperature
+      responses:
+        '200':
+          $ref: '#/components/responses/200'                    
   /sc/heatmaps:
     get:
       tags:
